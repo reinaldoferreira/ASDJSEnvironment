@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/reinaldoferreira/ASDJSEnvironment#readme",
   "dependencies": {
+  },
+  "devDependencies": {
+    "express": "^4.15.2",
     "nsp": "^2.6.3"
   }
 }
