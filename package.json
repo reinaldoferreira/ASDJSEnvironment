@@ -53,6 +53,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-md5-hash": "0.0.5"
+    "webpack-md5-hash": "0.0.5",
+    "whatwg-fetch": "^2.0.3"
   }
 }

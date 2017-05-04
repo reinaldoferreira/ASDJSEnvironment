@@ -14,6 +14,14 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }))
 
+app.get('/animals', function(req, res) {
+  res.json([
+    {name: 'Fluffykins', species: 'rabbit', friendlyPoints: 80 },
+    {name: 'Caro', species: 'dog', friendlyPoints: 100 },
+    {name: 'Hamilton', species: 'dog', friendlyPoints: 100 }
+  ])
+})
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../src/index.html'))
 })
