@@ -3,7 +3,7 @@ import jsdom from 'jsdom'
 import fs from 'fs'
 
 describe('Dummy test', () => {
-  it('should be true', () => expect(2 + 2).to.equal(5))
+  it('should be true', () => expect(2 + 2).to.equal(4))
 })
 
 describe('index.html', () => {
