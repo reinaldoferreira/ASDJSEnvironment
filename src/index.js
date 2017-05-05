@@ -1,7 +1,6 @@
 import './index.css'
 import { getAnimals } from './api/animals'
 
-
 getAnimals().then(data => {
   let animalsTemplate = data.map(x => `<tr>
     <td>${x.name}</td>

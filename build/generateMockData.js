@@ -6,6 +6,10 @@ import { schema } from './mockDataSchema'
 
 const data = JSON.stringify(jsf(schema))
 
-fs.writeFile('./src/api/data.json', data, err => err ?
-  console.log(chalk.red(err)) : console.log(chalk.green('Data generated!!'))
-)
+fs.writeFile('./src/api/data.json', data, function(err) {
+  if (err) {
+    return console.log(chalk.red(err))
+  } else {
+    console.log(chalk.green('Data generated!!'))
+  }
+})
