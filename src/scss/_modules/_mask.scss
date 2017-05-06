@@ -1,0 +1,11 @@
+.mask {
+  background-color: $t-black;
+  display: none;
+  min-height: 100%;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 1;
+
+  &.is-active { display: block; }
+}

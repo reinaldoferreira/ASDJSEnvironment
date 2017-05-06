@@ -1,0 +1,68 @@
+// Mixins usage
+// @mixin mixin-name($parameter)
+//   css-property: $parameter
+//
+// .class-name
+//   @include mixin-name(parameter)
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  & {
+    *zoom: 1;
+  }
+}
+
+// Use this method to specificy rem units for everything
+// If the base html font size is changed this function will stop working.
+@function rem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+// @include typography( headline );
+// Always use this method for adding font size, family and line height.
+@mixin typography($font) {
+  // The option variable stores the font font/ line-height matrix.
+  // The values are 'name of font': large font,line height, small font, line-height, font-family
+  $options: (
+    headline: (120px, 132px, 44px, 48px, $lato),
+    body-copy: (24px, 36px, 14px, 24px, $source),
+    copyright: (12px, 16px, 12px, 16px, $source)
+  );
+
+  $mediumFontSize: nth(map-get($options, $font), 1);
+  $mediumLineHeight: nth(map-get($options, $font), 2);
+  $smallFontSize: nth(map-get($options, $font), 3);
+  $smallLineHeight: nth(map-get($options, $font), 4);
+  $fontFamily: nth(map-get($options, $font), 5);
+
+  transition: font-size 300ms ease;
+
+  @include font($smallFontSize, $smallLineHeight, $fontFamily);
+
+  @media screen and (min-width: $medium) {
+    @include font($mediumFontSize, $mediumLineHeight, $fontFamily);
+  }
+}
+
+// Example: @include font(16px, 24px, font-family)
+@mixin font($size, $line-height, $family) {
+  //Fallback in px
+  font: #{$size}/$line-height $family;
+  font: rem($size) / rem($line-height) $family;
+}
+
+// Example: @include transition(150ms all ease-in-out)
+@mixin transition($time, $props, $ease) {
+  -webkit-transition: $time $props $ease;
+  -o-transition: $time $props $ease;
+  transition: $time $props $ease;
+}

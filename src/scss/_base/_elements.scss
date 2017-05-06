@@ -1,0 +1,22 @@
+body {
+  @include typography(body-copy);
+  color: $black;
+
+  &.is-active { overflow: hidden; }
+}
+
+img { max-width: 100%; }
+
+h1 {
+  @include typography(headline);
+  margin: 50px 0;
+}
+
+p { margin-bottom: $base-unit; }
+
+a {
+  color: $black;
+  text-decoration: none;
+}
+
+li { list-style: none; }
