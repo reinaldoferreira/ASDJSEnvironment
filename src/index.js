@@ -1,14 +1,13 @@
-import './index.css'
-import { getAnimals } from './api/animals'
+import { getUsers } from './api/users'
 
-getAnimals().then(data => {
-  let animalsTemplate = data.map(x => `<tr>
-    <td>${x.name}</td>
-    <td>${x.species}</td>
-    <td>${x.friendlyPoints}</td>
+getUsers().then(data => {
+  let usersTemplate = data.map(x => `<tr>
+    <td>${x.firstName}</td>
+    <td>${x.lastName}</td>
+    <td>${x.age}</td>
     </tr>`).join('')
 
-  let animals = data.length ? animalsTemplate : '<td colspan="3">Nothing found</td>'
+  let users = data.length ? usersTemplate : '<td colspan="3">Nothing found</td>'
 
-  global.document.getElementById('animals').innerHTML = animals
+  global.document.getElementById('users').innerHTML = users
 })
