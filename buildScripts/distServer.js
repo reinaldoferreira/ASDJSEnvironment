@@ -11,7 +11,7 @@ const app = express()
 app.use(compression())
 app.use(express.static('dist'))
 
-app.get('/animals', (req, res) => {
+app.get('/users', (req, res) => {
   return res.json([
     {name: 'Fluffykins', species: 'rabbit', friendlyPoints: 80 },
     {name: 'Caro', species: 'dog', friendlyPoints: 100 },

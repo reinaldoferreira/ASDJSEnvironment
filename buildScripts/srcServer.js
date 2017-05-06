@@ -15,7 +15,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }))
 
-app.get('/animals', (req, res) => {
+app.get('/users', (req, res) => {
   return res.json([
     {name: 'Fluffykins', species: 'rabbit', friendlyPoints: 80 },
     {name: 'Caro', species: 'dog', friendlyPoints: 100 },

@@ -3,8 +3,8 @@ import getBaseUrl from './baseUrl'
 
 const baseUrl = getBaseUrl()
 
-export function getAnimals() {
-  return get('animals')
+export function getUsers() {
+  return get('users')
 }
 
 function get(url) {

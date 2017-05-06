@@ -1,30 +1,30 @@
 export const schema = {
   "type": "object",
   "properties": {
-    "animals": {
+    "users": {
       "type": "array",
       "minItems": 3,
       "maxItems": 6,
       "items": {
         "type": "object",
         "properties": {
-          "name": {
+          "firstName": {
             "type": "string",
-            "faker": "name.findName"
+            "faker": "name.firstName"
           },
-          "species": {
+          "lastName": {
             "type": "string",
-            "faker": "name.findName"
+            "faker": "name.lastName"
           },
-          "friendlyPoints": {
+          "age": {
             "type": "number",
             "minimum": 0,
-            "maximum": 100
+            "maximum": 80
           }
         },
-        "required": ["name", "species", "friendlyPoints"]
+        "required": ["firstName", "lastName", "age"]
       }
     }
   },
-  "required": ["animals"]
+  "required": ["users"]
 }
