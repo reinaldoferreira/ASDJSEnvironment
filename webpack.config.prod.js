@@ -42,13 +42,12 @@ export default {
       inject: true,
       trackJSToken: 'INSERT YOUR TOKEN HERE'
     }),
+    // Eliminate duplicated packages
     new webpack.optimize.DedupePlugin(),
+    // Minify JS
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
-    ]
+    loaders: [{test: /\.js$/, exclude: /node_modules/, loaders: ['babel']}]
   }
 };
