@@ -1,4 +1,4 @@
-export default function getBaseUrl() {
-  const inDev = window.location.hostname === 'localhost'
+export default function getBaseUrl(w = window) {
+  const inDev = w.location.search !== ''
   return inDev ? 'http://localhost:3030/' : '/'
 }

@@ -27,4 +27,4 @@ app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '../src/index.html')))
 
 app.listen(port, err =>
-  err ? console.log(chalk.red(err)) : open('http://localhost:' + port))
+  err ? console.log(chalk.red(err)) : open(`http://localhost:${port}/?inDev`))
