@@ -6,7 +6,7 @@ export default {
   devtool: 'inline-source-map',
   noInfo: false,
   entry: [
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, 'src/js/index')
   ],
   target: 'web',
   output: {
@@ -18,10 +18,14 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      favicon: 'src/images/favicon-32x32.png',
       inject: true
     })
   ],
   module: {
-    loaders: [{test: /\.js$/, exclude: /node_modules/, loaders: ['babel']}]
+    loaders: [
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      {test: /\.css$/, loaders: ['style','css']}
+    ]
   }
 }

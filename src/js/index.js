@@ -1,3 +1,4 @@
+import '../css/main.min.css'
 import { getUsers } from './api/users'
 
 getUsers().then(data => {

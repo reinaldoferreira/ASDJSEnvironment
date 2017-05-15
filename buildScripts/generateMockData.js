@@ -6,7 +6,7 @@ import { schema } from './mockDataSchema'
 
 const data = JSON.stringify(jsf(schema))
 
-fs.writeFile('./src/api/data.json', data, function(err) {
+fs.writeFile('./src/js/api/data.json', data, function(err) {
   if (err) {
     return console.log(chalk.red(err))
   } else {
