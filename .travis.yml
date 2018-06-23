@@ -1,3 +1,7 @@
 language: node_js
 node_js:
- - "node"
+  - "node"
+deploy:
+  provider: surge
+  project: ./dist/
+  domain: asdenv.surge.sh
