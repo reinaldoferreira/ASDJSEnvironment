@@ -21,8 +21,8 @@
     "prebuild": "npm-run-all clean-dist test lint scss",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
-    "predeploy": "babel-node buildScripts/build.js",
-    "deploy": "surge ./dist"
+    "predeploy": "npm-run-all clean-dist && babel-node buildScripts/build.js",
+    "deploy": "surge --domain asdenv.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
