@@ -21,8 +21,8 @@
     "prebuild": "npm-run-all clean-dist test lint scss",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
-    "predeploy": "babel-node buildScripts/build.js",
-    "deploy": "surge ./dist"
+    "predeploy": "npm-run-all clean-dist && babel-node buildScripts/build.js",
+    "deploy": "surge --domain asdenv.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
@@ -64,7 +64,7 @@
     "open": "0.0.5",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
-    "surge": "^0.19.0",
+    "surge": "^0.20.1",
     "url-loader": "^0.5.8",
     "webpack": "^4.12.0",
     "webpack-dev-middleware": "^3.1.3",

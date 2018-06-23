@@ -11,7 +11,7 @@ describe('index.html', () => {
     const index = fs.readFileSync('./src/index.html', 'utf-8')
     jsdom.env(index, (err, window) => {
       let h1 = window.document.getElementsByTagName('h1')[0]
-      expect(h1.innerHTML).to.equal('Sweet')
+      expect(h1.innerHTML).to.equal('Sweet JS')
       done()
       window.close()
     })

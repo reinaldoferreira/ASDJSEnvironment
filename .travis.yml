@@ -1,5 +1,13 @@
 language: node_js
 node_js:
   - "node"
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
 after_success:
-  - surge --project ./dist/ --domain asdenv.surge.sh
+  - npm run deploy
