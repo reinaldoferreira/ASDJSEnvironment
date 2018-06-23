@@ -2,12 +2,11 @@ import webpack from 'webpack'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import WebpackMd5Hash from 'webpack-md5-hash'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 
 export default {
-  debug: true,
+  mode: 'production',
   devtool: 'source-map',
-  noInfo: false,
   entry: {
     main: path.resolve(__dirname, 'src/js/index')
   },
@@ -19,7 +18,7 @@ export default {
   },
   plugins: [
     // Generate an external css file with a hash in the filename
-    new ExtractTextPlugin('[name].[contenthash].css'),
+    new MiniCSSExtractPlugin('[name].[contenthash].css'),
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
     // Create HTML file that includes reference to bundled JS.
@@ -46,9 +45,9 @@ export default {
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+    rules: [
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+      {test: /\.css$/, loader: MiniCSSExtractPlugin.extract('css?sourceMap')}
     ]
   }
 }
