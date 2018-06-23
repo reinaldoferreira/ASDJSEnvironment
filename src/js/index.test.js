@@ -1,19 +1,6 @@
-import { expect } from 'chai'
-import jsdom from 'jsdom'
-import fs from 'fs'
-
+/* global expect */
 describe('Dummy test', () => {
-  it('should be true', () => expect(2 + 2).to.equal(4))
-})
-
-describe('index.html', () => {
-  it('should contain Sweet', (done) => {
-    const index = fs.readFileSync('./src/index.html', 'utf-8')
-    jsdom.env(index, (err, window) => {
-      let h1 = window.document.getElementsByTagName('h1')[0]
-      expect(h1.innerHTML).to.equal('Sweet JS')
-      done()
-      window.close()
-    })
+  it('Should be true', () => {
+    expect(2 + 2).toBe(4)
   })
 })
